@@ -208,7 +208,7 @@
   <body>
     <main>
       <p class="site-title">offsets.upio.dev</p>
-      <p class="intro">Roblox external offsets. Pick your platform and language to get the download URL.</p>
+      <p class="intro">macOS Roblox external offsets. Pick your arch and format to get the download URL.</p>
 
       <div class="status">
         <span class="status-dot" aria-hidden="true"></span>
@@ -217,10 +217,10 @@
 
       <div class="controls">
         <label>
-          <span class="label-text">Platform</span>
-          <select id="platform">
-            <option value="macOS/arm64">macOS · arm64</option>
-            <option value="macOS/x64">macOS · x64</option>
+          <span class="label-text">Architecture</span>
+          <select id="arch">
+            <option value="arm64">arm64</option>
+            <option value="x64">x64</option>
           </select>
         </label>
 
@@ -266,7 +266,7 @@
 
     <script>
       const versionEl = document.getElementById('version');
-      const platformEl = document.getElementById('platform');
+      const archEl = document.getElementById('arch');
       const languageEl = document.getElementById('language');
       const codegenLangEl = document.getElementById('codegen-lang');
       const urlEl = document.getElementById('url');
@@ -279,7 +279,7 @@
       let version = '';
 
       function getSelection() {
-        const [, arch] = platformEl.value.split('/');
+        const arch = archEl.value;
         const ext = languageEl.value;
         return { arch, ext };
       }
@@ -358,7 +358,7 @@ curl -fsSL "$base/$arch/$version/${file}" -o ${file}`;
         downloadEl.href = path;
       }
 
-      platformEl.addEventListener('change', update);
+      archEl.addEventListener('change', update);
       languageEl.addEventListener('change', update);
       codegenLangEl.addEventListener('change', update);
 
