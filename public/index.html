@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Roblox macOS external offsets for arm64 and x64.">
+    <title>offsets.upio.dev</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #fafafa;
+        --surface: #fff;
+        --text: #171717;
+        --muted: #737373;
+        --border: #e5e5e5;
+        --code-bg: #f5f5f5;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0a0a0a;
+          --surface: #141414;
+          --text: #fafafa;
+          --muted: #a3a3a3;
+          --border: #262626;
+          --code-bg: #1a1a1a;
+          --accent: #60a5fa;
+          --accent-hover: #93c5fd;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 15px/1.6 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      main {
+        max-width: 560px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      .site-title {
+        margin: 0 0 8px;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .intro {
+        margin: 0 0 32px;
+        color: var(--muted);
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 32px;
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        font-size: 14px;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+      }
+
+      .controls {
+        display: grid;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        font-size: 14px;
+      }
+
+      .label-text {
+        color: var(--muted);
+      }
+
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--text);
+        font: inherit;
+        cursor: pointer;
+      }
+
+      select:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: 1px;
+      }
+
+      .result {
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .result-label {
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .result-url {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .result-url code {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 13px;
+      }
+
+      .actions {
+        display: flex;
+        flex-shrink: 0;
+        gap: 8px;
+      }
+
+      button,
+      .download {
+        padding: 6px 12px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--bg);
+        color: var(--text);
+        font: inherit;
+        font-size: 13px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      button:hover,
+      .download:hover {
+        border-color: var(--muted);
+      }
+
+      .download {
+        color: var(--accent);
+      }
+
+      .codegen {
+        margin-top: 24px;
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .codegen label {
+        margin-bottom: 16px;
+      }
+
+      .codegen-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .codegen-header .result-label {
+        margin: 0;
+      }
+
+      pre {
+        margin: 0;
+        padding: 14px 16px;
+        overflow-x: auto;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--code-bg);
+        font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 13px;
+        line-height: 1.5;
+        white-space: pre;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="site-title">offsets.upio.dev</p>
+      <p class="intro">Roblox external offsets. Pick your platform and language to get the download URL.</p>
+
+      <div class="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        Latest version: <strong id="version">…</strong>
+      </div>
+
+      <div class="controls">
+        <label>
+          <span class="label-text">Platform</span>
+          <select id="platform">
+            <option value="macOS/arm64">macOS · arm64</option>
+            <option value="macOS/x64">macOS · x64</option>
+          </select>
+        </label>
+
+        <label>
+          <span class="label-text">Format</span>
+          <select id="language">
+            <option value="json">JSON</option>
+            <option value="h">C/C++ (.h)</option>
+            <option value="cs">C# (.cs)</option>
+            <option value="py">Python (.py)</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="result">
+        <p class="result-label">Download URL</p>
+        <div class="result-url">
+          <code id="url">…</code>
+          <div class="actions">
+            <button type="button" id="copy">Copy</button>
+            <a class="download" id="download" href="#">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="codegen">
+        <label>
+          <span class="label-text">Example language</span>
+          <select id="codegen-lang">
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="csharp">C#</option>
+            <option value="shell">Shell</option>
+          </select>
+        </label>
+        <div class="codegen-header">
+          <p class="result-label">Fetch latest</p>
+          <button type="button" id="copy-code">Copy</button>
+        </div>
+        <pre id="code"></pre>
+      </div>
+    </main>
+
+    <script>
+      const versionEl = document.getElementById('version');
+      const platformEl = document.getElementById('platform');
+      const languageEl = document.getElementById('language');
+      const codegenLangEl = document.getElementById('codegen-lang');
+      const urlEl = document.getElementById('url');
+      const copyEl = document.getElementById('copy');
+      const copyCodeEl = document.getElementById('copy-code');
+      const downloadEl = document.getElementById('download');
+      const codeEl = document.getElementById('code');
+
+      const base = `${location.origin}/rbxl/macOS`;
+      let version = '';
+
+      function getSelection() {
+        const [, arch] = platformEl.value.split('/');
+        const ext = languageEl.value;
+        return { arch, ext };
+      }
+
+      function buildPath(versionOverride) {
+        const { arch, ext } = getSelection();
+        const v = versionOverride ?? version;
+        return `/rbxl/macOS/${arch}/${v}/offsets.${ext}`;
+      }
+
+      function generateCode() {
+        const { arch, ext } = getSelection();
+        const lang = codegenLangEl.value;
+        const file = `offsets.${ext}`;
+
+        if (lang === 'javascript') {
+          const parse = ext === 'json'
+            ? 'const offsets = await offsetsRes.json();'
+            : 'const offsets = await offsetsRes.text();';
+
+          return `const base = '${base}';
+const arch = '${arch}';
+
+const versionRes = await fetch(\`\${base}/latest.txt\`);
+const version = (await versionRes.text()).trim();
+const offsetsRes = await fetch(\`\${base}/\${arch}/\${version}/${file}\`);
+${parse}`;
+        }
+
+        if (lang === 'python') {
+          if (ext === 'json') {
+            return `import requests
+
+base = "${base}"
+arch = "${arch}"
+
+version = requests.get(f"{base}/latest.txt").text.strip()
+offsets = requests.get(f"{base}/{arch}/{version}/${file}").json()`;
+          }
+
+          return `import requests
+
+base = "${base}"
+arch = "${arch}"
+
+version = requests.get(f"{base}/latest.txt").text.strip()
+offsets = requests.get(f"{base}/{arch}/{version}/${file}").text`;
+        }
+
+        if (lang === 'csharp') {
+          return `using System.Net.Http;
+
+var baseUrl = "${base}";
+var arch = "${arch}";
+
+using var client = new HttpClient();
+var version = (await client.GetStringAsync($"{baseUrl}/latest.txt")).Trim();
+var offsets = await client.GetStringAsync($"{baseUrl}/{arch}/{version}/${file}");`;
+        }
+
+        return `base="${base}"
+arch="${arch}"
+
+version=$(curl -fsSL "$base/latest.txt" | tr -d '[:space:]')
+curl -fsSL "$base/$arch/$version/${file}" -o ${file}`;
+      }
+
+      function update() {
+        codeEl.textContent = generateCode();
+
+        if (!version) return;
+
+        const path = buildPath();
+        const full = `${location.origin}${path}`;
+        urlEl.textContent = full;
+        downloadEl.href = path;
+      }
+
+      platformEl.addEventListener('change', update);
+      languageEl.addEventListener('change', update);
+      codegenLangEl.addEventListener('change', update);
+
+      copyEl.addEventListener('click', async () => {
+        await navigator.clipboard.writeText(urlEl.textContent);
+        copyEl.textContent = 'Copied';
+        setTimeout(() => {
+          copyEl.textContent = 'Copy';
+        }, 1500);
+      });
+
+      copyCodeEl.addEventListener('click', async () => {
+        await navigator.clipboard.writeText(codeEl.textContent);
+        copyCodeEl.textContent = 'Copied';
+        setTimeout(() => {
+          copyCodeEl.textContent = 'Copy';
+        }, 1500);
+      });
+
+      fetch('/rbxl/macOS/latest.txt')
+        .then((response) => response.text())
+        .then((text) => {
+          version = text.trim();
+          versionEl.textContent = version;
+          update();
+        })
+        .catch(() => {
+          versionEl.textContent = 'unavailable';
+        });
+
+      update();
+    </script>
+  </body>
+</html>
