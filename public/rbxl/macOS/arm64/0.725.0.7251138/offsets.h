@@ -4,8 +4,8 @@
  * Github: https://github.com/notpoiu/roblox-dumper (forked)
  * Roblox Version: 0.725.0.7251138
  * Architecture: arm64
- * Time Taken: 33009 ms (33.009000 seconds)
- * Total Offsets: 276
+ * Time Taken: 30858 ms (30.858000 seconds)
+ * Total Offsets: 277
  */
 
 #pragma once
@@ -83,7 +83,7 @@ namespace offsets {
 
     namespace GuiObject {
         inline constexpr uintptr_t Active = 0x590;
-        inline constexpr uintptr_t AnchorPoint = 0x500;
+        inline constexpr uintptr_t AnchorPoint = 0x540;
         inline constexpr uintptr_t AutomaticSize = 0x548;
         inline constexpr uintptr_t BackgroundColor3 = 0x528;
         inline constexpr uintptr_t BackgroundTransparency = 0x54C;
@@ -211,6 +211,10 @@ namespace offsets {
     namespace MeshPart {
         inline constexpr uintptr_t MeshId = 0x2E0;
         inline constexpr uintptr_t TextureId = 0x308;
+    }
+
+    namespace Model {
+        inline constexpr uintptr_t PrimaryPart = 0x238;
     }
 
     namespace ModuleScript {
@@ -359,7 +363,7 @@ namespace offsets {
         inline constexpr uintptr_t Text = 0xB28;
         inline constexpr uintptr_t TextColor3 = 0xDE0;
         inline constexpr uintptr_t TextDirection = 0xCA8;
-        inline constexpr uintptr_t TextScaled = 0x5;
+        inline constexpr uintptr_t TextScaled = 0xCFE;
         inline constexpr uintptr_t TextSize = 0xE0C;
         inline constexpr uintptr_t TextStrokeColor3 = 0xDEC;
         inline constexpr uintptr_t TextStrokeTransparency = 0xE10;

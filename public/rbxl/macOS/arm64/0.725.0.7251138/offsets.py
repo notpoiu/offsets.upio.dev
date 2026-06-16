@@ -3,8 +3,8 @@
 # Github: https://github.com/notpoiu/roblox-dumper (forked)
 # Roblox Version: 0.725.0.7251138
 # Architecture: arm64
-# Time Taken: 33009 ms (33.009000 seconds)
-# Total Offsets: 276
+# Time Taken: 30858 ms (30.858000 seconds)
+# Total Offsets: 277
 
 class Offsets:
     ROBLOX_VERSION = "0.725.0.7251138"
@@ -68,7 +68,7 @@ class Offsets:
 
     class GuiObject:
         Active = 1424
-        AnchorPoint = 1280
+        AnchorPoint = 1344
         AutomaticSize = 1352
         BackgroundColor3 = 1320
         BackgroundTransparency = 1356
@@ -188,6 +188,9 @@ class Offsets:
     class MeshPart:
         MeshId = 736
         TextureId = 776
+
+    class Model:
+        PrimaryPart = 568
 
     class ModuleScript:
         Bytecode = 320
@@ -319,7 +322,7 @@ class Offsets:
         Text = 2856
         TextColor3 = 3552
         TextDirection = 3240
-        TextScaled = 5
+        TextScaled = 3326
         TextSize = 3596
         TextStrokeColor3 = 3564
         TextStrokeTransparency = 3600

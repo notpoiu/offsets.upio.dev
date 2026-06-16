@@ -3,8 +3,8 @@
 # Github: https://github.com/notpoiu/roblox-dumper (forked)
 # Roblox Version: 0.725.0.7251138
 # Architecture: x64
-# Time Taken: 11512 ms (11.512000 seconds)
-# Total Offsets: 274
+# Time Taken: 6435 ms (6.435000 seconds)
+# Total Offsets: 276
 
 class Offsets:
     ROBLOX_VERSION = "0.725.0.7251138"
@@ -54,6 +54,7 @@ class Offsets:
     class DataModel:
         CreatorId = 384
         GameId = 392
+        GameLoaded = 2616
         JobId = 328
         PlaceId = 400
         Workspace = 360
@@ -160,7 +161,7 @@ class Offsets:
 
     class LocalScript:
         Bytecode = 408
-        Hash = 440
+        Hash = 248
 
     class MaterialColors:
         Asphalt = 48
@@ -189,9 +190,12 @@ class Offsets:
         MeshId = 736
         TextureId = 776
 
+    class Model:
+        PrimaryPart = 568
+
     class ModuleScript:
         Bytecode = 320
-        Hash = 16
+        Hash = 248
 
     class MouseService:
         InputObject = 280

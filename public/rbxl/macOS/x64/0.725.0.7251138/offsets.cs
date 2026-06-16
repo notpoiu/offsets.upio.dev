@@ -4,8 +4,8 @@
  * Github: https://github.com/notpoiu/roblox-dumper (forked)
  * Roblox Version: 0.725.0.7251138
  * Architecture: x64
- * Time Taken: 11512 ms (11.512000 seconds)
- * Total Offsets: 274
+ * Time Taken: 6435 ms (6.435000 seconds)
+ * Total Offsets: 276
  */
 
 using System;
@@ -75,6 +75,7 @@ namespace RobloxOffsets
     {
         public const ulong CreatorId = 0x180;
         public const ulong GameId = 0x188;
+        public const ulong GameLoaded = 0xA38;
         public const ulong JobId = 0x148;
         public const ulong PlaceId = 0x190;
         public const ulong Workspace = 0x168;
@@ -199,7 +200,7 @@ namespace RobloxOffsets
     public static class LocalScript
     {
         public const ulong Bytecode = 0x198;
-        public const ulong Hash = 0x1B8;
+        public const ulong Hash = 0xF8;
     }
 
     public static class MaterialColors
@@ -233,10 +234,15 @@ namespace RobloxOffsets
         public const ulong TextureId = 0x308;
     }
 
+    public static class Model
+    {
+        public const ulong PrimaryPart = 0x238;
+    }
+
     public static class ModuleScript
     {
         public const ulong Bytecode = 0x140;
-        public const ulong Hash = 0x10;
+        public const ulong Hash = 0xF8;
     }
 
     public static class MouseService

@@ -4,8 +4,8 @@
  * Github: https://github.com/notpoiu/roblox-dumper (forked)
  * Roblox Version: 0.725.0.7251138
  * Architecture: arm64
- * Time Taken: 33009 ms (33.009000 seconds)
- * Total Offsets: 276
+ * Time Taken: 30858 ms (30.858000 seconds)
+ * Total Offsets: 277
  */
 
 using System;
@@ -95,7 +95,7 @@ namespace RobloxOffsets
     public static class GuiObject
     {
         public const ulong Active = 0x590;
-        public const ulong AnchorPoint = 0x500;
+        public const ulong AnchorPoint = 0x540;
         public const ulong AutomaticSize = 0x548;
         public const ulong BackgroundColor3 = 0x528;
         public const ulong BackgroundTransparency = 0x54C;
@@ -231,6 +231,11 @@ namespace RobloxOffsets
     {
         public const ulong MeshId = 0x2E0;
         public const ulong TextureId = 0x308;
+    }
+
+    public static class Model
+    {
+        public const ulong PrimaryPart = 0x238;
     }
 
     public static class ModuleScript
@@ -396,7 +401,7 @@ namespace RobloxOffsets
         public const ulong Text = 0xB28;
         public const ulong TextColor3 = 0xDE0;
         public const ulong TextDirection = 0xCA8;
-        public const ulong TextScaled = 0x5;
+        public const ulong TextScaled = 0xCFE;
         public const ulong TextSize = 0xE0C;
         public const ulong TextStrokeColor3 = 0xDEC;
         public const ulong TextStrokeTransparency = 0xE10;

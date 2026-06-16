@@ -4,9 +4,9 @@
   "Architecture": "arm64",
   "Dumper Version": "2.7",
   "Dumped By": "upio & Jonah",
-  "Dumped At": "01:17 15/06/2026",
+  "Dumped At": "14:11 16/06/2026",
   "Discord": "upio / 1177722124035706931 | jonahw / 315412038455132160",
-  "Total Offsets": 243,
+  "Total Offsets": 244,
   "Offsets": {
     "PlayerConfigurer": {},
     "TaskScheduler": {
@@ -229,7 +229,9 @@
       "MeshId": 736,
       "Texture": 776
     },
-    "Model": {},
+    "Model": {
+      "PrimaryPart": 568
+    },
     "SpecialMesh": {
       "MeshId": 272,
       "Offset": 208,
@@ -243,7 +245,7 @@
     "PlayerMouse": {},
     "GuiObject": {
       "Active": 1424,
-      "AnchorPoint": 1280,
+      "AnchorPoint": 1344,
       "AutomaticSize": 1352,
       "BackgroundColor3": 1320,
       "BackgroundTransparency": 1356,

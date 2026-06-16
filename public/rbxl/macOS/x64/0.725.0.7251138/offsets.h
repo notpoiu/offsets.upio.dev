@@ -4,8 +4,8 @@
  * Github: https://github.com/notpoiu/roblox-dumper (forked)
  * Roblox Version: 0.725.0.7251138
  * Architecture: x64
- * Time Taken: 11512 ms (11.512000 seconds)
- * Total Offsets: 274
+ * Time Taken: 6435 ms (6.435000 seconds)
+ * Total Offsets: 276
  */
 
 #pragma once
@@ -66,6 +66,7 @@ namespace offsets {
     namespace DataModel {
         inline constexpr uintptr_t CreatorId = 0x180;
         inline constexpr uintptr_t GameId = 0x188;
+        inline constexpr uintptr_t GameLoaded = 0xA38;
         inline constexpr uintptr_t JobId = 0x148;
         inline constexpr uintptr_t PlaceId = 0x190;
         inline constexpr uintptr_t Workspace = 0x168;
@@ -181,7 +182,7 @@ namespace offsets {
 
     namespace LocalScript {
         inline constexpr uintptr_t Bytecode = 0x198;
-        inline constexpr uintptr_t Hash = 0x1B8;
+        inline constexpr uintptr_t Hash = 0xF8;
     }
 
     namespace MaterialColors {
@@ -213,9 +214,13 @@ namespace offsets {
         inline constexpr uintptr_t TextureId = 0x308;
     }
 
+    namespace Model {
+        inline constexpr uintptr_t PrimaryPart = 0x238;
+    }
+
     namespace ModuleScript {
         inline constexpr uintptr_t Bytecode = 0x140;
-        inline constexpr uintptr_t Hash = 0x10;
+        inline constexpr uintptr_t Hash = 0xF8;
     }
 
     namespace MouseService {
